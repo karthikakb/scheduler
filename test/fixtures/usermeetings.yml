@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  meetingtype: MyString
+  dateandtime: 2020-09-03 02:19:42
+  meetingtitle: MyString
+  participants: MyString
+  user_id: 1
+
+two:
+  meetingtype: MyString
+  dateandtime: 2020-09-03 02:19:42
+  meetingtitle: MyString
+  participants: MyString
+  user_id: 1

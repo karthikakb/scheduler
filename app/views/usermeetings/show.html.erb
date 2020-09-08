@@ -1,0 +1,26 @@
+
+ <br><br><br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Meeting Title</th>
+      <th scope="col">Meeting Type</th>
+      <th scope="col">Date and time</th>
+      <th scope="col">Participants</th>
+      <th scope="col">Url</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usermeeting.each do |blog| %>
+      <tr>
+        <td><%= blog.meeting_title %></td>
+        <td><%= blog.meeting_type %></td>
+        <td><%= blog.dateandtime %></td>
+        <td><%= blog.participants %></td> 
+        <td><%= blog.url %></td>    
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<

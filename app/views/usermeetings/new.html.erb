@@ -1,0 +1,62 @@
+<br>
+
+
+<div class="container">
+  <% content_for :javascript_includes do %>
+  <%= javascript_include_tag "date_time_picker" %>
+  <% end %>
+
+  <%= form_for(@usermeeting) do |f| %>
+  <% if @usermeeting.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@usermeeting.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+
+  </div>
+  <% end %>
+  <h1>Create new meeting</h1>
+  <div class="form-group">
+
+    <div class="field">
+      <%= f.label :meeting_title %>
+      <%= f.text_field :meeting_title, class: 'form-control' %>
+    </div>
+    <div class="field">
+      <%= f.label :meeting_type %>
+      <select name="usermeeting[meeting_type]" id="usermeeting_meeting_type" class="form-control">
+        <option value="video">video</option>
+        <option value="InPerson">InPerson</option>
+        <option value="Phone">Phone</option></select>
+    </div>
+
+    <div class="field">
+        <%= f.label :dateandtime %>
+        <div class="controls" style="position: relative">
+        <input class="form-control" type="text" name="usermeeting[dateandtime]" id="usermeeting_dateandtime"><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+      </div>
+    </div>
+
+    
+       <div class="field">
+          <%= f.label :participants %>
+
+          <select name="usermeeting[participants]" id="usermeeting_participants" class="form-control">
+             <% @users.each do |user| %>
+            <option value="<%= user.first_name %>"><%= user.first_name %></option> 
+          <% end %>
+          </select>
+          <%= f.hidden_field :user_id %>          
+        </div>
+      </div>
+      <br><br>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+
+    </div>
+  </div>
+       
+  <% end %>
+</div>
+
