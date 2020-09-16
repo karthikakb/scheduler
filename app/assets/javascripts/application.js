@@ -13,11 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
-//= require moment
-//= require moment/fr.js
+//= require jquery
+//= require jquery.turbolinks
+//= require jquery_ujs
+//
+// ... your other scripts here ...
+//
+//= require turbolinks
+
+
+

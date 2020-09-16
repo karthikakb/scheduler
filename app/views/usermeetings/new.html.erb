@@ -1,11 +1,12 @@
   <br>
 
-
-  <div class="container">
+ 
     <% content_for :javascript_includes do %>
-    <%= javascript_include_tag "date_time_picker" %>
+        <%= javascript_include_tag 'date_time_picker', 'data-turbolinks-track': 'reload' %>
+
     <% end %>
 
+ <div class="container">
     <%= form_for(@usermeeting) do |f| %>
     <% if @usermeeting.errors.any? %>
     <div id="error_explanation">
