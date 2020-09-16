@@ -8,7 +8,7 @@
      <%= javascript_include_tag 'data_table', 'data-turbolinks-track': 'reload' %>
 
     <% end %>
-
+<div class="container">
 <table class="table table-bordered" id="data_table">
   <thead>
     <tr>
@@ -17,6 +17,8 @@
       <th scope="col">Date and time</th>
       <th scope="col">Participants</th>
       <th scope="col">Url</th>
+      <th scope="col">Status</th>
+      <th scope="col">Edit</th>
     </tr>
   </thead>
 
@@ -27,9 +29,20 @@
         <td><%= blog.meeting_type %></td>
         <td><%= blog.dateandtime %></td>
         <td><%= blog.participants %></td> 
-        <td><%= blog.url %></td>    
+        <td><%= blog.url %></td> 
+
+        <% if Time.now.strftime("%d/%m/%Y %H:%M") == blog.dateandtime %>
+        <td>Ongoing</td>
+        <% elsif Time.now.strftime("%d/%m/%Y %H:%M") > blog.dateandtime %>
+        <td>Expired</td>
+         <% elsif Time.now.strftime("%d/%m/%Y %H:%M") < blog.dateandtime %>
+        <td>Upcoming</td>
+        <% end %>
+
+        
+        <td><a href="/usermeetings/<%= blog.id %>/edit">Edit</a></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<
+</div>

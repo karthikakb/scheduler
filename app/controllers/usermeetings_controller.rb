@@ -21,10 +21,24 @@ class UsermeetingsController < ApplicationController
      else
       render :new	  
 	end
+    end
+	def edit
+		@usermeeting=Usermeeting.find(params[:id])
+		@users=User.all
+		@user=User.find(current_user.id)
 	end
+	def update
+		@usermeeting=Usermeeting.find(params[:id])
+		@usermeeting.update(usermeeting_params)
+		@usermeeting.save
+		redirect_to usermeetings_path
+	end
+
+	def  set_usermeeting
+		@usermeeting=Usermeeting.find(params[:id])
+	end
+
 	 def usermeeting_params
       params.require(:usermeeting).permit(:meeting_title, :meeting_type, :participants, :dateandtime, :user_id)
     end
-
-
 end
