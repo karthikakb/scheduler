@@ -15,3 +15,5 @@ Rails.application.config.assets.precompile += %w( user.css )
 Rails.application.config.assets.precompile += %w( date_time_picker.js )
 
 Rails.application.config.assets.precompile += %w( data_table.js )
+
+Rails.application.config.assets.precompile += %w(validate.js )

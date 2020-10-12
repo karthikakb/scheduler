@@ -10,10 +10,13 @@
     <%= form_for(@usermeeting) do |f| %>
     <% if @usermeeting.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@usermeeting.errors.count, "error") %> prohibited this blog from being saved:</h2>
-
-
+      <h2><%= pluralize(@usermeeting.errors.count, "error") %> prohibited this Meeting from being saved:</h2>
     </div>
+    <% @usermeeting.errors.each do |attr, msg| %>
+  <li>
+    <%= @usermeeting.errors.full_messages_for(attr) %>
+  </li>
+<% end %>
     <% end %>
     <h1>Create new meeting</h1>
     <div class="form-group">

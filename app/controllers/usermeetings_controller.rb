@@ -14,6 +14,8 @@ class UsermeetingsController < ApplicationController
 		@usermeeting=Usermeeting.where(user_id: @user.id)
 	end
 	def create
+		@users=User.all
+		@user=User.find(current_user.id)
 		@usermeeting =Usermeeting.create(usermeeting_params)
 		if @usermeeting.valid?
     	  @usermeeting.save
